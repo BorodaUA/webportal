@@ -1,0 +1,12 @@
+[submodule "flask_frontend"]
+	path = flask_frontend
+	url = https://github.com/BorodaUA/flask_frontend.git
+[submodule "flask_backend"]
+	path = flask_backend
+	url = https://github.com/BorodaUA/flask_backend.git
+[submodule "hacker_news_parser"]
+	path = hacker_news_parser
+	url = https://github.com/BorodaUA/hacker_news_parser.git
+[submodule "postgres_server"]
+	path = postgres_server
+	url = https://github.com/BorodaUA/postgres_server.git

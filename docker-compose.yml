@@ -1,0 +1,41 @@
+version: '3'
+services:
+    flask_frontend:
+        build: ./flask_frontend
+        restart: always
+        ports: 
+            - 5000:5000
+        links: 
+            - 'flask_backend'
+        volumes: 
+            - ./flask_frontend:/usr/src/flask_frontend
+    flask_backend:
+        build: ./flask_backend
+        restart: always
+        ports: 
+            - 4000:4000
+        volumes: 
+            - ./flask_backend:/usr/src/flask_backend
+        depends_on: 
+            - postgres_server
+    postgres_server:
+        build: ./postgres_server
+        restart: always
+        env_file: ./postgres_server/.env
+        volumes:
+        - postgres_data:/var/lib/postgresql/data/
+    hacker_news_parser:
+        build: ./hacker_news_parser
+        restart: always
+        env_file: ./hacker_news_parser/.env
+        volumes: 
+            - ./hacker_news_parser:/usr/src/hacker_news_parser
+        ports: 
+            - 80:80
+            - 6800:6800
+            - 6900:6900    
+            - 5678:5678
+        depends_on: 
+            - postgres_server
+volumes:
+    postgres_data:
