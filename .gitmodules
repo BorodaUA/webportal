@@ -10,3 +10,6 @@
 [submodule "postgres_server"]
 	path = postgres_server
 	url = https://github.com/BorodaUA/postgres_server.git
+[submodule "pgadmin4"]
+	path = pgadmin4
+	url = https://github.com/BorodaUA/pgadmin4.git

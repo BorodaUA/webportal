@@ -24,6 +24,14 @@ services:
         env_file: ./postgres_server/.env
         volumes:
         - postgres_data:/var/lib/postgresql/data/
+    pgadmin:
+        build: ./pgadmin4
+        restart: always
+        env_file: ./pgadmin4/.env
+        ports: 
+            - 7000:7000
+        depends_on: 
+            - postgres_server
     hacker_news_parser:
         build: ./hacker_news_parser
         restart: always
@@ -34,7 +42,6 @@ services:
             - 80:80
             - 6800:6800
             - 6900:6900    
-            - 5678:5678
         depends_on: 
             - postgres_server
 volumes:
