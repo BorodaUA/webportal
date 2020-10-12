@@ -13,3 +13,6 @@
 [submodule "pgadmin4"]
 	path = pgadmin4
 	url = https://github.com/BorodaUA/pgadmin4.git
+[submodule "nginx"]
+	path = nginx
+	url = https://github.com/BorodaUA/nginx.git

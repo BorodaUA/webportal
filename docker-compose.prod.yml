@@ -1,0 +1,20 @@
+version: '3'
+services:
+    nginx:
+        build: ./nginx
+        ports: 
+            - 80:80
+        depends_on: 
+            - flask_frontend
+    flask_frontend:
+        build:
+            context: ./flask_frontend
+            dockerfile: Dockerfile.prod
+        command: gunicorn --bind 0.0.0.0:5500 -w 4 run:app
+        restart: always
+        expose:
+            - 5500
+        ports: 
+            - 5600:5600
+        volumes: 
+            - ./flask_frontend:/usr/src/flask_frontend
